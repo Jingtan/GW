@@ -4,7 +4,7 @@ import math
 
 '''
 设置参数：
-设置粒子所组成的圆的半径为1，在圆中取60个散点，设置引力波振幅为1.
+设置粒子所组成的圆的半径为1，在圆中取60个散点，设置引力波振幅h_0为1.
 '''
 r = 1
 n = 60
@@ -36,22 +36,24 @@ def plot():
             y2 = s2 + 1/2 * h_0 * math.sin(t) * s1
             y2_list.append(y2)
 
+        plt.figure(num="1", figsize=(12, 6))
         # 加模作图
         ax1 = plt.subplot(1, 2, 1)
         plt.scatter(x_list, y_list)
         plt.title("h+")
-        plt.xticks([-1, 1])
-        plt.yticks([-1, 1])
+        plt.xticks([-2, 2])
+        plt.yticks([-2, 2])
 
         # 叉模作图
         ax2 = plt.subplot(1, 2, 2)
         plt.scatter(x2_list, y2_list)
         plt.title("hx")
-        plt.xticks([-1, 1])
-        plt.yticks([-1, 1])
+        plt.xticks([-2, 2])
+        plt.yticks([-2, 2])
         plt.pause(0.0001)
         plt.show(block=False)
         plt.clf()
+
 
 
 n1 = 5
@@ -59,5 +61,3 @@ counter = 0
 while counter < n1:
     counter += 1
     plot()
-
-
